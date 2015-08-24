@@ -14,7 +14,7 @@ class Cli {
      * Holds our commands
      * @var array 
      */
-    protected static $_commands = [];
+    protected static $_commands = array();
     
     /**
      * Add a command to our CLI list
@@ -25,12 +25,12 @@ class Cli {
      * @return array
      */
     public static function add($command, $callable, $method = null, $params = array()) {
-        return self::$_commands[] = new Command([
+        return self::$_commands[] = new Command(array(
             'command'   => $command,
             'callable'  => $callable,
             'method'    => $method,
             'params'    => $params
-        ]);
+        ));
     }
     
     /**
@@ -52,7 +52,7 @@ class Cli {
                 $method = $_command->getMethod();
                 $className = $_command->getCallable();
                 $command = new $className;
-                return call_user_func_array([$command, $method], $arguments);
+                return call_user_func_array(array($command, $method), $arguments);
             }
         }
     }
