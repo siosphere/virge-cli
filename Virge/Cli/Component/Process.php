@@ -7,11 +7,14 @@ namespace Virge\Cli\Component;
  */
 class Process extends \Virge\Core\Model {
     
+    protected $process;
+    
     /**
      * @param string $command
      */
     public function __construct($command) {
         $this->command = $command;
+        $this->execute();
     }
     
     /**
@@ -58,7 +61,6 @@ class Process extends \Virge\Core\Model {
             $this->closeProcess($info);
         }
         
-        
         return $info['running'];
     }
     
@@ -69,6 +71,7 @@ class Process extends \Virge\Core\Model {
     public function closeProcess($info) {
         $this->setCleanExit(true);
         $this->setExitCode($info['exitcode']);
+        $this->setOutput(stream_get_contents($this->pipes[1]));
         
         foreach($this->pipes as $pipe){
             fclose($pipe);
