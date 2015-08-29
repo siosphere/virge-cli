@@ -61,7 +61,7 @@ class Process extends \Virge\Core\Model {
             $this->closeProcess($info);
         }
         
-        return $info['running'];
+        return !$info['running'];
     }
     
     /**
