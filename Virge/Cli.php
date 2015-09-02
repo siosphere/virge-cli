@@ -50,6 +50,9 @@ class Cli {
                 }
                 
                 $method = $_command->getMethod();
+                if(!$method) {
+                    $method = 'run';
+                }
                 $className = $_command->getCallable();
                 $command = new $className;
                 return call_user_func_array(array($command, $method), $arguments);
