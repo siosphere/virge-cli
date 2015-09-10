@@ -1,9 +1,9 @@
 <?php
 
-use Virge\Cli\Capsule;
+use Virge\Virge;
 
 /**
  * Registers all given handlers with Virge that this Capsule contains
  * @author Michael Kramer
  */
-Capsule::registerService("cli", "\\Virge\\Cli");
+Virge::registerService("cli", "\\Virge\\Cli");
