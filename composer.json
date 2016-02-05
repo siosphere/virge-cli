@@ -1,13 +1,8 @@
 {
     "name": "virge/cli",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/siosphere/virge-core"
-        }
-    ],
     "require": {
-        "virge/core": "dev-master"
+        "virge/core": "dev-master",
+        "virge/enigma": "dev-master"
     },
     "autoload": {
         "psr-4": {"Virge\\": "Virge/"}
