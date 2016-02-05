@@ -37,7 +37,7 @@ class Command extends Model{
     protected function instanceAlreadyRunning() {
         
         $running_processes = array();
-        exec("ps aux | grep '".self::COMMAND."' | grep -v grep", $running_processes);
+        exec("ps aux | grep '".$this::COMMAND."' | grep -v grep", $running_processes);
         return count($running_processes) > 1;
     }
     
