@@ -34,10 +34,15 @@ class Command extends Model{
      * Is an instance of this command already running?
      * @return type
      */
-    protected function instanceAlreadyRunning() {
-        
+    protected function instanceAlreadyRunning($args = []) {
+
         $running_processes = array();
-        exec("ps aux | grep '".$this::COMMAND."' | grep -v grep", $running_processes);
+        $command = $this::COMMAND;
+        if(count($args) > 0) {
+            $command .= " " . implode(" ", $args);
+        }
+
+        exec("ps aux | grep '".$command."' | grep -v grep", $running_processes);
         return count($running_processes) > 1;
     }
     
