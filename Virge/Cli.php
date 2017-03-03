@@ -8,7 +8,8 @@ use Virge\Cli\Component\Command;
  * @author Michael Kramer
  */
 
-class Cli {
+class Cli 
+{
     
     /**
      * Holds our commands
@@ -24,7 +25,8 @@ class Cli {
      * @param array $params
      * @return array
      */
-    public static function add($command, $callable, $method = null, $params = array()) {
+    public static function add($command, $callable, $method = null, $params = []) 
+    {
         return self::$_commands[] = new Command(array(
             'command'   => $command,
             'callable'  => $callable,
@@ -39,7 +41,8 @@ class Cli {
      * @param array $arguments
      * @return mixed
      */
-    public function execute($command, $arguments = array()) {
+    public static function execute($command, $arguments = []) 
+    {
         
         foreach (self::$_commands as $_command) {
             if ($_command->command == $command) {
@@ -64,7 +67,8 @@ class Cli {
      * Request input, with explanation of what you are requesting
      * @param type $string
      */
-    public static function input($string = ''){
+    public static function input($string = '')
+    {
         echo $string . " ";
         $value = trim(fgets(STDIN));
         return $value;
@@ -74,7 +78,8 @@ class Cli {
      * Write output
      * @param string $string
      */
-    public static function output($string = ''){
+    public static function output($string = '')
+    {
         echo $string . PHP_EOL;
     }
 }

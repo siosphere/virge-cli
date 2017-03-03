@@ -1,12 +1,8 @@
 <?php
 namespace Virge\Cli;
-
 /**
- * 
- * @author Michael Kramer
+ * @deprecated
  */
-class Capsule extends \Virge\Core\Capsule {
-    public function registerCapsule() {
-        
-    }
+class Capsule extends CliCapsule {
+
 }

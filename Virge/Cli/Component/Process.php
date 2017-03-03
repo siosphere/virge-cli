@@ -5,14 +5,16 @@ namespace Virge\Cli\Component;
  * 
  * @author Michael Kramer
  */
-class Process extends \Virge\Core\Model {
+class Process extends \Virge\Core\Model 
+{
     
     protected $process;
     
     /**
      * @param string $command
      */
-    public function __construct($command) {
+    public function __construct($command) 
+    {
         $this->command = $command;
         $this->execute();
     }
@@ -20,7 +22,8 @@ class Process extends \Virge\Core\Model {
     /**
      * 
      */
-    public function execute() {
+    public function execute() 
+    {
         
         $this->process = proc_open($this->command,
         array(
@@ -40,7 +43,8 @@ class Process extends \Virge\Core\Model {
      * Is this process finished or not? If it is finished, close the process
      * @return boolean
      */
-    public function isFinished() {
+    public function isFinished() 
+    {
         
         if($this->process === NULL){
             return true;
@@ -68,7 +72,8 @@ class Process extends \Virge\Core\Model {
      * Close the process
      * @param Info $info
      */
-    public function closeProcess($info) {
+    public function closeProcess($info) 
+    {
         $this->setCleanExit(true);
         $this->setExitCode($info['exitcode']);
         $this->setOutput(stream_get_contents($this->pipes[1]));
