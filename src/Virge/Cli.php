@@ -96,6 +96,7 @@ class Cli
      */
     public static function output($string = '', $endLine = true)
     {
+        self::setupOutput();
         self::$output->write($string);
         if($endLine) {
             self::$output->write(PHP_EOL);
@@ -104,6 +105,7 @@ class Cli
 
     public static function success($string = '', $endLine = true)
     {
+        self::setupOutput();
         self::$output->success($string);
         if($endLine) {
             self::$output->write(PHP_EOL);
@@ -112,6 +114,7 @@ class Cli
 
     public static function warning($string = '', $endLine = true)
     {
+        self::setupOutput();
         self::$output->warning($string);
         if($endLine) {
             self::$output->write(PHP_EOL);
@@ -120,6 +123,7 @@ class Cli
 
     public static function error($string = '', $endLine = true)
     {
+        self::setupOutput();
         self::$output->error($string);
         if($endLine) {
             self::$output->error(PHP_EOL);
@@ -128,6 +132,7 @@ class Cli
 
     public static function important($string = '', $endLine = true)
     {
+        self::setupOutput();
         self::$output->important($string);
         if($endLine) {
             self::$output->write(PHP_EOL);
@@ -136,6 +141,7 @@ class Cli
 
     public static function highlight($string = '', $endLine = true)
     {
+        self::setupOutput();
         self::$output->highlight($string);
         if($endLine) {
             self::$output->write(PHP_EOL);
@@ -144,6 +150,10 @@ class Cli
 
     protected static function setupOutput()
     {
+        if(self::$output) {
+            return;
+        }
+
         self::$output = new Output();
     }
 }
