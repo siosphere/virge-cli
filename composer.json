@@ -8,8 +8,8 @@
         }
     ],
     "require": {
-        "virge/core": "~1.0",
-        "virge/enigma": "~1.0"
+        "virge/core": "~2.0",
+        "virge/enigma": "~2.0"
     },
     "autoload": {
         "psr-4": {"Virge\\": "src/Virge/"}
