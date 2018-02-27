@@ -1,14 +1,14 @@
 <?php
 namespace Virge\Cli\Component;
 
-use Virge\Core\Model;
 use Virge\Enigma;
 
 /**
  * 
  * @author Michael Kramer
  */
-class Command extends Model{
+class Command
+{
     
     const COMMAND = ''; //should be overwritten by each command
     

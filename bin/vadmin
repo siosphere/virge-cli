@@ -1,0 +1,19 @@
+#!/usr/bin/env php
+<?php
+
+use Virge\Cli\Component\Input;
+use Virge\Core\Config;
+
+set_time_limit(0);
+
+chdir(dirname(__FILE__));
+
+require_once 'bootstrap.php';
+
+// Create new Notifier instance.
+$config = Config::get('app');
+
+$input = Input::parse($argv);
+
+$reactor = new Reactor();
+$reactor->run('prod', 'cli', 'execute', [$input]);
